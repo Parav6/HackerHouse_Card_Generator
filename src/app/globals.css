@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --color-hh-green: #005C38;
+  --color-hh-green-dark: #003D24;
+  --color-hh-green-light: #02804F;
+  --color-hh-yellow: #FFD400;
+  --color-hh-pink: #FF0A78;
+  --color-hh-white: #FFFFFF;
+  --color-hh-ink: #111111;
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --animate-sway: sway 6s ease-in-out infinite;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(4deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+:root {
+  --background: #003D24;
+  --foreground: #FFFFFF;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Brutalist Utilities */
+.brutalist-border {
+  border: 3px solid var(--color-hh-ink);
+}
+
+.brutalist-shadow-yellow {
+  box-shadow: 4px 4px 0px 0px var(--color-hh-yellow);
+}
+
+.brutalist-shadow-pink {
+  box-shadow: 4px 4px 0px 0px var(--color-hh-pink);
+}
+
+.brutalist-shadow-ink {
+  box-shadow: 4px 4px 0px 0px var(--color-hh-ink);
+}
+
+.brutalist-button {
+  background-color: var(--color-hh-yellow);
+  color: var(--color-hh-ink);
+  font-weight: 800;
+  text-transform: uppercase;
+  border: 3px solid var(--color-hh-ink);
+  box-shadow: 4px 4px 0px 0px var(--color-hh-ink);
+  transition: all 0.1s ease-in-out;
+}
+
+.brutalist-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px 0px var(--color-hh-ink);
+}
+
+.brutalist-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--color-hh-ink);
+}
+
+.brutalist-button-pink {
+  background-color: var(--color-hh-pink);
+  color: var(--color-hh-white);
+  font-weight: 800;
+  text-transform: uppercase;
+  border: 3px solid var(--color-hh-ink);
+  box-shadow: 4px 4px 0px 0px var(--color-hh-ink);
+  transition: all 0.1s ease-in-out;
+}
+
+.brutalist-button-pink:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px 0px var(--color-hh-ink);
+}
+
+.brutalist-button-pink:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--color-hh-ink);
+}
+
+.brutalist-card {
+  background-color: var(--color-hh-white);
+  color: var(--color-hh-ink);
+  border: 3px solid var(--color-hh-ink);
+  box-shadow: 6px 6px 0px 0px var(--color-hh-ink);
+}
+
+/* Paper Texture Overlay */
+.paper-texture {
+  position: relative;
+}
+.paper-texture::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
