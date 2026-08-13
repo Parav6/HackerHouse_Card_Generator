@@ -41,9 +41,9 @@ export default function Home() {
         />
       </motion.div>
 
-      {/* Palm Trees - Swaying from Left & Right */}
+      {/* Palm Trees - Swaying from Left & Right (Hidden on mobile to avoid overlapping hero text) */}
       <motion.div
-        className="absolute top-20 left-[-40px] md:left-[-10px] w-40 h-64 md:w-72 md:h-[450px] z-10 pointer-events-none origin-bottom-left"
+        className="hidden md:block absolute top-20 left-[-10px] w-72 h-[450px] z-10 pointer-events-none origin-bottom-left"
         animate={{ rotate: [-2, 3, -2] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -57,7 +57,7 @@ export default function Home() {
       </motion.div>
 
       <motion.div
-        className="absolute top-32 right-[-30px] md:right-[-10px] w-36 h-60 md:w-64 md:h-[400px] z-10 pointer-events-none origin-bottom-right"
+        className="hidden md:block absolute top-32 right-[-10px] w-64 h-[400px] z-10 pointer-events-none origin-bottom-right"
         animate={{ rotate: [2, -3, 2] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -70,44 +70,28 @@ export default function Home() {
         />
       </motion.div>
 
-      {/* Main Hero Container */}
       <main className="flex-1 flex flex-col justify-center items-center px-4 py-16 md:py-24 max-w-5xl mx-auto w-full text-center relative z-20">
         {/* Goa-poster Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-8"
-        >
+        <div className="mb-8">
           <span className="font-mono text-xs md:text-sm tracking-widest text-hh-yellow uppercase bg-hh-ink/40 px-3 py-1 brutalist-border border-2 rounded-full inline-block mb-4 shadow-[2px_2px_0px_var(--hh-ink)]">
             Hacker House Goa 2026 Submission
           </span>
 
-          <h1 className="font-serif text-5xl md:text-8xl font-black uppercase tracking-tight text-hh-yellow leading-[0.95] md:leading-[0.9]">
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tight text-hh-yellow leading-[0.95] md:leading-[0.9]">
             BUILD YOUR <br />
             <span className="text-white relative">
               GOA IDENTITY
-              <motion.span
-                className="absolute left-0 bottom-[-10px] md:bottom-[-20px] w-full h-3 md:h-6 bg-hh-pink -rotate-1 -z-10"
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-              />
+              <span className="absolute left-0 bottom-[-10px] md:bottom-[-20px] w-full h-3 md:h-6 bg-hh-pink -rotate-1 -z-10" />
             </span>
           </h1>
 
           <p className="mt-8 font-sans font-medium text-lg md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed">
             Generate your branded builder badge, download your social card, and step into the event networking layer. Scan to connect with peers, unlock recommendations, and rank on the leaderboard.
           </p>
-        </motion.div>
+        </div>
 
         {/* Dynamic Navigation Box */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-lg mb-16"
-        >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-lg mb-16">
           {isAuthenticated && builder ? (
             <div className="w-full flex flex-col gap-4">
               {/* If builder passport already exists */}
@@ -145,14 +129,14 @@ export default function Home() {
               </Link>
             </>
           )}
-        </motion.div>
+        </div>
 
         {/* Feature Signboard Block */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-left mt-8">
           {/* Card 1 */}
           <motion.div
             whileHover={{ y: -5 }}
-            className="brutalist-card p-6 flex flex-col justify-between"
+            className="brutalist-card p-4 sm:p-6 flex flex-col justify-between"
           >
             <div>
               <div className="bg-hh-yellow brutalist-border border-2 p-3 w-fit mb-4 rotate-[-3deg] shadow-[2px_2px_0px_var(--hh-ink)]">
@@ -172,7 +156,7 @@ export default function Home() {
           {/* Card 2 */}
           <motion.div
             whileHover={{ y: -5 }}
-            className="brutalist-card p-6 flex flex-col justify-between shadow-[6px_6px_0px_var(--hh-pink)]"
+            className="brutalist-card p-4 sm:p-6 flex flex-col justify-between shadow-[6px_6px_0px_var(--hh-pink)]"
           >
             <div>
               <div className="bg-hh-pink brutalist-border border-2 p-3 w-fit mb-4 rotate-[3deg] shadow-[2px_2px_0px_var(--hh-ink)] text-white">
@@ -192,7 +176,7 @@ export default function Home() {
           {/* Card 3 */}
           <motion.div
             whileHover={{ y: -5 }}
-            className="brutalist-card p-6 flex flex-col justify-between"
+            className="brutalist-card p-4 sm:p-6 flex flex-col justify-between"
           >
             <div>
               <div className="bg-hh-yellow brutalist-border border-2 p-3 w-fit mb-4 rotate-[-1deg] shadow-[2px_2px_0px_var(--hh-ink)]">

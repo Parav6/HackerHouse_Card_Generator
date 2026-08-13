@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Users, Shield, PlusCircle, AlertCircle, Loader2 } from "lucide-react";
 import Navbar from "@/components/navigation/Navbar";
+import ClaimPassportOverlay from "@/components/navigation/ClaimPassportOverlay";
 import { useSessionStore } from "@/store/session-store";
 
 export default function ConnectPage({ params }: { params: Promise<{ token: string }> }) {
@@ -228,6 +229,9 @@ export default function ConnectPage({ params }: { params: Promise<{ token: strin
                     CREATE MY BUILDER ID
                   </button>
                 </div>
+              ) : !currentUser?.claimed ? (
+                /* Prompt to claim passport first */
+                <ClaimPassportOverlay />
               ) : currentUser?.id === targetBuilder.id ? (
                 /* Block self connect */
                 <div className="bg-red-50 border-3 border-red-500 p-5 text-center flex flex-col items-center gap-2 text-red-700">
@@ -274,7 +278,6 @@ export default function ConnectPage({ params }: { params: Promise<{ token: strin
         </AnimatePresence>
       </div>
 
-      
     </div>
   );
 }

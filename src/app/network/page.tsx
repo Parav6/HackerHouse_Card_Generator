@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Users, Code, Compass, Heart, ArrowUpRight, Search, QrCode } from "lucide-react";
 import Navbar from "@/components/navigation/Navbar";
+import ClaimPassportOverlay from "@/components/navigation/ClaimPassportOverlay";
 import { useSessionStore } from "@/store/session-store";
 
 export default function NetworkPage() {
@@ -61,11 +62,22 @@ export default function NetworkPage() {
     return (
       <div className="flex flex-col min-h-screen bg-hh-green-dark text-white relative paper-texture justify-center items-center">
         <Navbar />
-        <div className="flex-1 flex flex-col justify-center items-center gap-2">
+        <div className="flex-grow flex flex-col justify-center items-center gap-2">
           <RefreshIcon className="animate-spin text-hh-yellow w-10 h-10" />
           <p className="font-mono text-xs uppercase tracking-wider text-hh-yellow mt-2">
             Loading Network Dashboard...
           </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (isAuthenticated && builder && !builder.claimed) {
+    return (
+      <div className="flex flex-col min-h-screen bg-hh-green-dark text-white relative paper-texture justify-center items-center">
+        <Navbar />
+        <div className="flex-grow flex flex-col justify-center items-center w-full py-12">
+          <ClaimPassportOverlay />
         </div>
       </div>
     );
@@ -270,7 +282,6 @@ export default function NetworkPage() {
 
       </main>
 
-      
     </div>
   );
 }

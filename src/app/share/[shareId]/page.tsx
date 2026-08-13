@@ -74,7 +74,7 @@ export default async function SharePage({ params }: Props) {
           </div>
 
           {/* Large Card Render */}
-          <div className="relative w-64 h-96 border-3 border-hh-ink shadow-[4px_4px_0px_var(--hh-ink)] overflow-hidden bg-hh-green-dark">
+          <div className="relative w-64 h-96 shadow-[4px_4px_0px_var(--hh-ink)] overflow-hidden bg-hh-green-dark">
             <Image
               src={builder.cardUrl}
               alt={builder.name}
@@ -111,7 +111,6 @@ export default async function SharePage({ params }: Props) {
 
       </main>
 
-      
     </div>
   );
 }

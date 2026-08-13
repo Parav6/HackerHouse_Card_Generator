@@ -79,7 +79,7 @@ export default async function BuilderProfilePage({ params }: Props) {
           
           {/* Card PNG display */}
           <div className="flex flex-col items-center justify-center">
-            <div className="relative w-full max-w-[280px] aspect-[2/3] border-3 border-hh-ink shadow-[4px_4px_0px_var(--hh-ink)] overflow-hidden bg-hh-green-dark">
+            <div className="relative w-full max-w-[280px] aspect-[2/3] shadow-[4px_4px_0px_var(--hh-ink)] overflow-hidden bg-hh-green-dark">
               <Image
                 src={builder.cardUrl}
                 alt={builder.name}
@@ -172,7 +172,6 @@ export default async function BuilderProfilePage({ params }: Props) {
 
       </main>
 
-      
     </div>
   );
 }

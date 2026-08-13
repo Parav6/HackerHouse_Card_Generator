@@ -12,7 +12,8 @@ import { rateLimit } from "@/lib/rate-limit";
 
 export async function POST(request: Request) {
   try {
-    // 1. Rate Limit Card Creation (e.g. 5 card generations per hour per IP)
+    // 1. Rate Limit Card Creation (Disabled for testing)
+    
     const ip = request.headers.get("x-forwarded-for") || "127.0.0.1";
     const limitKey = `rate-limit:builders-create:${ip}`;
     const limiter = await rateLimit(limitKey, 5, 3600); // 5 per hour
@@ -22,6 +23,7 @@ export async function POST(request: Request) {
         { status: 429 }
       );
     }
+    
 
     // 2. Validate Request Body
     const body = await request.json();

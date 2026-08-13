@@ -11,7 +11,6 @@ export default function CreatePage() {
         <BuilderCardGenerator />
       </div>
 
-      
     </div>
   );
 }

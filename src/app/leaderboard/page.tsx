@@ -160,7 +160,6 @@ export default function LeaderboardPage() {
         )}
       </main>
 
-      
     </div>
   );
 }
